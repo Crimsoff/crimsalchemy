@@ -36,9 +36,10 @@ public class CrimsRecipeLoader extends SimpleJsonResourceReloadListener {
                         if (type.equals("potion")) {
                             ResourceLocation effect = ResourceLocation.parse(json.get("effect").getAsString());
                             int duration = json.has("duration") ? json.get("duration").getAsInt() : 1800;
+                            int amplifier = json.has("amplifier") ? json.get("amplifier").getAsInt() : 0;
                             int progress_required = json.has("progress_required") ? json.get("progress_required").getAsInt() : 20;
                             int capacity_requirement = json.has("capacity_requirement") ? json.get("capacity_requirement").getAsInt() : 1;
-                            ALCHEMY_RECIPES.put(input, new AlchemyRecipe(input, effect, duration, progress_required, capacity_requirement));
+                            ALCHEMY_RECIPES.put(input, new AlchemyRecipe(input, effect, duration, amplifier, progress_required, capacity_requirement));
                         } else if (type.equals("dye")) {
 
                             int color = json.has("color") ? Integer.parseInt(json.get("color").getAsString(), 16) : 0xFFFFFF;
@@ -55,13 +56,13 @@ public class CrimsRecipeLoader extends SimpleJsonResourceReloadListener {
                             int progress_required = json.has("progress_required") ? json.get("progress_required").getAsInt() : 1;
                             int capacity_requirement = json.has("capacity_requirement") ? json.get("capacity_requirement").getAsInt() : 1;
                             ALCHEMY_RECIPES.put(input, new AlchemyDurationRecipe(input, multiplier, progress_required, apply_to_all, capacity_requirement));
-                        } else if (type.equals("power")) {
-                            int power = json.has("power") ? json.get("power").getAsInt() : 1;
+                        } else if (type.equals("amplifier")) {
+                            int amplifier = json.has("amplifier") ? json.get("amplifier").getAsInt() : 1;
                             boolean apply_to_all = json.has("apply_to_all") && json.get("apply_to_all").getAsBoolean();
                             int progress_required = json.has("progress_required") ? json.get("progress_required").getAsInt() : 1;
                             int capacity_requirement = json.has("capacity_requirement") ? json.get("capacity_requirement").getAsInt() : 1;
-                            if (power >= 0) {
-                                ALCHEMY_RECIPES.put(input, new AlchemyPowerRecipe(input, power, progress_required, apply_to_all, capacity_requirement));
+                            if (amplifier >= 1) {
+                                ALCHEMY_RECIPES.put(input, new AlchemyAmplifierRecipe(input, amplifier, progress_required, apply_to_all, capacity_requirement));
                             }
                         } else {
                             CrimsAlchemy.LOGGER.error("[Crim's Alchemy] No recognized type in recipe " + loc);

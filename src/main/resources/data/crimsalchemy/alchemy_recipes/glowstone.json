@@ -1,7 +1,7 @@
 {
-  "type": "power",
+  "type": "amplifier",
   "input": "minecraft:glowstone",
-  "power": 1,
+  "amplifier": 1,
   "apply_to_all": true,
   "progress_required": 1,
   "capacity_requirement": 3

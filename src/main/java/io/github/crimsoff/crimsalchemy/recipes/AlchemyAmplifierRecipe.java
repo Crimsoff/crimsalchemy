@@ -7,16 +7,16 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class AlchemyPowerRecipe implements AlchemicalCauldronRecipe {
+public class AlchemyAmplifierRecipe implements AlchemicalCauldronRecipe {
     private final Item input;
-    private final int power;
+    private final int amplifier;
     private final int progress_required;
     private final boolean apply_to_all;
     private final int capacity_requirement;
 
-    public AlchemyPowerRecipe(Item input, int power, int progressRequired, boolean applyToAll, int capacityRequirement) {
+    public AlchemyAmplifierRecipe(Item input, int amplifier, int progressRequired, boolean applyToAll, int capacityRequirement) {
         this.input = input;
-        this.power = power;
+        this.amplifier = amplifier;
         progress_required = progressRequired;
         apply_to_all = applyToAll;
         capacity_requirement = capacityRequirement;
@@ -31,13 +31,13 @@ public class AlchemyPowerRecipe implements AlchemicalCauldronRecipe {
         if (apply_to_all) {
             for (int i = 0; i < cauldron.effects.size(); ++i) {
                 MobEffectInstance effect = cauldron.effects.get(i);
-                MobEffectInstance newEffect = new MobEffectInstance(effect.getEffect(), effect.getDuration() / (power + 1), effect.getAmplifier() + power);
+                MobEffectInstance newEffect = new MobEffectInstance(effect.getEffect(), effect.getDuration() / (amplifier + 1), effect.getAmplifier() + amplifier);
                 cauldron.effects.set(i, newEffect);
             }
         } else {
             int lastIndex = cauldron.effects.size() - 1;
             MobEffectInstance effect = cauldron.effects.get(lastIndex);
-            MobEffectInstance newEffect = new MobEffectInstance(effect.getEffect(), effect.getDuration() / (power + 1), effect.getAmplifier() + power);
+            MobEffectInstance newEffect = new MobEffectInstance(effect.getEffect(), effect.getDuration() / (amplifier + 1), effect.getAmplifier() + amplifier);
             cauldron.effects.set(lastIndex, newEffect);
         }
         cauldron.capacity -= capacity_requirement;
@@ -73,9 +73,9 @@ public class AlchemyPowerRecipe implements AlchemicalCauldronRecipe {
     public ItemStack exampleOutput() {
         ItemStack item = new ItemStack(CrimsBlockRegister.ALCHEMICAL_CAULDRON_BLOCK.get(), 1);
         if (apply_to_all) {
-            item.setHoverName(Component.translatable("recipe.output.power_all").append(""+power).withStyle(style -> style.withItalic(false)));
+            item.setHoverName(Component.translatable("recipe.output.amplifier_all").append(""+amplifier).withStyle(style -> style.withItalic(false)));
         } else {
-            item.setHoverName(Component.translatable("recipe.output.power").append(""+power).withStyle(style -> style.withItalic(false)));
+            item.setHoverName(Component.translatable("recipe.output.amplifier").append(""+amplifier).withStyle(style -> style.withItalic(false)));
         }
         return item;
     }

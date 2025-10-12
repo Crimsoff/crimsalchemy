@@ -6,8 +6,8 @@
   "recipe.output.capacity" : "Capacity +",
   "recipe.output.duration" : "Duration x",
   "recipe.output.duration_all" : "Duration for all x",
-  "recipe.output.power" : "Power +",
-  "recipe.output.power_all" : "Power for all +",
+  "recipe.output.amplifier" : "Amplifier +",
+  "recipe.output.amplifier_all" : "Amplifier for all +",
   "recipe.output.color" : "Color Change",
   "item.output.potion" : "Increases the following effect:"
 }
