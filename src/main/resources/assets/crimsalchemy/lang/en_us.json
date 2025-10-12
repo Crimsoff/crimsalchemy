@@ -1,0 +1,13 @@
+{
+  "item.crimsalchemy.anointing_paste": "Anointing Paste",
+  "block.crimsalchemy.alchemical_cauldron": "Alchemical Cauldron",
+  "creativetab.crimsalchemy_tab" : "Crim's Alchemy",
+  "item.crimsalchemy.potion" : "Witch's Brew",
+  "recipe.output.capacity" : "Capacity +",
+  "recipe.output.duration" : "Duration x",
+  "recipe.output.duration_all" : "Duration for all x",
+  "recipe.output.power" : "Power +",
+  "recipe.output.power_all" : "Power for all +",
+  "recipe.output.color" : "Color Change",
+  "item.output.potion" : "Increases the following effect:"
+}

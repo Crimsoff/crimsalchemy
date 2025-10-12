@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:gold_ingot",
+  "effect": "minecraft:haste",
+  "duration": "4800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

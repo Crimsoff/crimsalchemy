@@ -1,0 +1,8 @@
+{
+  "type": "power",
+  "input": "minecraft:glowstone_dust",
+  "power": 1,
+  "apply_to_all": false,
+  "progress_required": 1,
+  "capacity_requirement": 1
+}

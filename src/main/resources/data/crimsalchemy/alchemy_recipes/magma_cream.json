@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:magma_cream",
+  "effect": "minecraft:fire_resistance",
+  "duration": "4800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

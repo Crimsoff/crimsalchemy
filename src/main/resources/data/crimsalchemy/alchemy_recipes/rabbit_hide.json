@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:rabbit_hide",
+  "effect": "minecraft:jump_boost",
+  "duration": "4800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

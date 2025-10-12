@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:azure_bluet",
+  "effect": "minecraft:blindness",
+  "duration": "1800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

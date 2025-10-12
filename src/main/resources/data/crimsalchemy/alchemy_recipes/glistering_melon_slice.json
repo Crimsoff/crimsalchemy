@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:glistering_melon_slice",
+  "effect": "minecraft:instant_health",
+  "duration": "2",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

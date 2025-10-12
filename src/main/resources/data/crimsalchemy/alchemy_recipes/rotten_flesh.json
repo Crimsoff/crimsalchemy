@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:rotten_flesh",
+  "effect": "minecraft:hunger",
+  "duration": "4800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:golden_carrot",
+  "effect": "minecraft:night_vision",
+  "duration": "4800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

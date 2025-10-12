@@ -1,0 +1,8 @@
+{
+  "type": "duration",
+  "input": "minecraft:redstone",
+  "multiplier": 2.0,
+  "apply_to_all": false,
+  "progress_required": 1,
+  "capacity_requirement": 1
+}

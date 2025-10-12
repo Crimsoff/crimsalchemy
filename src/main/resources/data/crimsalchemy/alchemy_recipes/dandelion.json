@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:dandelion",
+  "effect": "minecraft:saturation",
+  "duration": "2",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

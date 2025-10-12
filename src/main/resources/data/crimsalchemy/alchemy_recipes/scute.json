@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:scute",
+  "effect": "minecraft:resistance",
+  "duration": "1200",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

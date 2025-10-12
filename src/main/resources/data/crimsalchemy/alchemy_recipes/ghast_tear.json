@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:ghast_tear",
+  "effect": "minecraft:regeneration",
+  "duration": "600",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

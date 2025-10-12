@@ -1,0 +1,7 @@
+{
+  "type": "capacity",
+  "input": "minecraft:nether_wart_block",
+  "capacity": 1,
+  "progress_required": 1,
+  "capacity_requirement": 0
+}

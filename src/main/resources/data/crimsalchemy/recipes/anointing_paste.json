@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:crimson_fungus"
+      },
+      {
+        "item": "minecraft:red_mushroom"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:brown_mushroom"
+      },
+      {
+        "item": "minecraft:warped_fungus"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:wheat_seeds"
+      },
+      {
+        "item": "minecraft:nether_wart"
+      }
+    ],
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ],
+  "result": {
+    "item": "crimsalchemy:anointing_paste",
+    "count": 1
+  }
+}

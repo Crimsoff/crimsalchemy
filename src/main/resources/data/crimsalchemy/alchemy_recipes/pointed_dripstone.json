@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:pointed_dripstone",
+  "effect": "minecraft:instant_damage",
+  "duration": "2",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

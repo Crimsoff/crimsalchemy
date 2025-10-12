@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:golden_apple",
+  "effect": "minecraft:health_boost",
+  "duration": "4800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}

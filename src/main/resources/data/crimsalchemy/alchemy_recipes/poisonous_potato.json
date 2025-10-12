@@ -1,0 +1,8 @@
+{
+  "type": "potion",
+  "input": "minecraft:poisonous_potato",
+  "effect": "minecraft:nausea",
+  "duration": "1800",
+  "progress_required": 20,
+  "capacity_requirement": 1
+}
