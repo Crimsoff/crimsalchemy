@@ -42,7 +42,7 @@ public class AlchemyRecipe implements AlchemicalCauldronRecipe {
             for (int i = 0; i < cauldron.effects.size(); ++i) {
                 MobEffectInstance effectInstance = cauldron.effects.get(i);
                 if (effectInstance.getEffect() == effect) {
-                    MobEffectInstance newEffect = new MobEffectInstance(effectInstance.getEffect(), (effectInstance.getDuration() + effectDuration) / 4, effectInstance.getAmplifier() + (amplifier + 1));
+                    MobEffectInstance newEffect = new MobEffectInstance(effectInstance.getEffect(), (effectInstance.getDuration() + (effectDuration) / (effectInstance.getDuration() + effectDuration + 1)) / 4, effectInstance.getAmplifier() + (amplifier + 1));
                     cauldron.effects.set(i, newEffect);
                     cauldron.capacity -= capacity_requirement;
                     return true;
@@ -85,6 +85,7 @@ public class AlchemyRecipe implements AlchemicalCauldronRecipe {
         list.add(new MobEffectInstance(effect, effectDuration, amplifier));
         PotionUtils.setCustomEffects(item, list);
         item.setHoverName(Component.translatable("item.output.potion").withStyle(style -> style.withItalic(false)));
+        item.getOrCreateTag().putInt("CustomPotionColor", effect.getColor());
         return item;
     }
 }

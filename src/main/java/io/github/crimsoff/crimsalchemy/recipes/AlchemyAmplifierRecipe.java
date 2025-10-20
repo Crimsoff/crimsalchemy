@@ -61,7 +61,7 @@ public class AlchemyAmplifierRecipe implements AlchemicalCauldronRecipe {
 
     @Override
     public String getType() {
-        return "power";
+        return "amplifier";
     }
 
     @Override
@@ -73,9 +73,9 @@ public class AlchemyAmplifierRecipe implements AlchemicalCauldronRecipe {
     public ItemStack exampleOutput() {
         ItemStack item = new ItemStack(CrimsBlockRegister.ALCHEMICAL_CAULDRON_BLOCK.get(), 1);
         if (apply_to_all) {
-            item.setHoverName(Component.translatable("recipe.output.amplifier_all").append(""+amplifier).withStyle(style -> style.withItalic(false)));
+            item.setHoverName(Component.translatable("recipe.output.amplifier_all", amplifier).withStyle(style -> style.withItalic(false)));
         } else {
-            item.setHoverName(Component.translatable("recipe.output.amplifier").append(""+amplifier).withStyle(style -> style.withItalic(false)));
+            item.setHoverName(Component.translatable("recipe.output.amplifier", amplifier).withStyle(style -> style.withItalic(false)));
         }
         return item;
     }

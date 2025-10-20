@@ -64,6 +64,13 @@ public class CrimsRecipeLoader extends SimpleJsonResourceReloadListener {
                             if (amplifier >= 1) {
                                 ALCHEMY_RECIPES.put(input, new AlchemyAmplifierRecipe(input, amplifier, progress_required, apply_to_all, capacity_requirement));
                             }
+                        }  else if (type.equals("change")) {
+                            Item output = ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(json.get("output").getAsString()));
+                            if (output != null) {
+                                int progress_required = json.has("progress_required") ? json.get("progress_required").getAsInt() : 1;
+                                int capacity_requirement = json.has("capacity_requirement") ? json.get("capacity_requirement").getAsInt() : 0;
+                                ALCHEMY_RECIPES.put(input, new ChangePotionRecipe(input, output, progress_required, capacity_requirement));
+                            }
                         } else {
                             CrimsAlchemy.LOGGER.error("[Crim's Alchemy] No recognized type in recipe " + loc);
                         }

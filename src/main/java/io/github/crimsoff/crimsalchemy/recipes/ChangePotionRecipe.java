@@ -1,25 +1,21 @@
 package io.github.crimsoff.crimsalchemy.recipes;
 
-import com.mojang.blaze3d.shaders.Effect;
 import io.github.crimsoff.crimsalchemy.blockentities.AlchemicalCauldronBlockEntity;
-import io.github.crimsoff.crimsalchemy.blocks.AlchemicalCauldronBlock;
 import io.github.crimsoff.crimsalchemy.blocks.CrimsBlockRegister;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraftforge.registries.ForgeRegistries;
 
-public class AlchemyCapacityRecipe implements AlchemicalCauldronRecipe {
+public class ChangePotionRecipe implements AlchemicalCauldronRecipe {
     private final Item input;
-    private final int capacity;
+    private final Item output;
     private final int progress_required;
     private final int capacity_requirement;
 
-    public AlchemyCapacityRecipe(Item input, int capacity, int progressRequired, int capacityRequirement) {
+    public ChangePotionRecipe(Item input, Item output, int progressRequired, int capacityRequirement) {
         this.input = input;
-        this.capacity = capacity;
+        this.output = output;
         progress_required = progressRequired;
         capacity_requirement = capacityRequirement;
     }
@@ -27,10 +23,8 @@ public class AlchemyCapacityRecipe implements AlchemicalCauldronRecipe {
 
     @Override
     public boolean applyToCauldron(AlchemicalCauldronBlockEntity cauldron) {
-        if (cauldron.hasIngredient(input)) {
-            return false;
-        }
-        cauldron.capacity += capacity - capacity_requirement;
+        cauldron.output = output;
+        cauldron.capacity -= capacity_requirement;
         return true;
     }
 
@@ -46,12 +40,12 @@ public class AlchemyCapacityRecipe implements AlchemicalCauldronRecipe {
 
     @Override
     public boolean isAllowed(AlchemicalCauldronBlockEntity cauldron) {
-        return !cauldron.hasIngredient(input);
+        return true;
     }
 
     @Override
     public String getType() {
-        return "capacity";
+        return "change";
     }
 
     @Override
@@ -61,9 +55,8 @@ public class AlchemyCapacityRecipe implements AlchemicalCauldronRecipe {
 
     @Override
     public ItemStack exampleOutput() {
-        ItemStack item = new ItemStack(CrimsBlockRegister.ALCHEMICAL_CAULDRON_BLOCK.get(), 1);
-        item.setHoverName(Component.translatable("recipe.output.capacity", capacity).withStyle(style -> style.withItalic(false)));
+        ItemStack item = new ItemStack(output, 1);
+        item.setHoverName(Component.translatable("item.crimsalchemy.potion").withStyle(style -> style.withItalic(false)));
         return item;
     }
-
 }

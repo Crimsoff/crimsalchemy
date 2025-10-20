@@ -74,9 +74,9 @@ public class AlchemyDurationRecipe implements AlchemicalCauldronRecipe {
     public ItemStack exampleOutput() {
         ItemStack item = new ItemStack(CrimsBlockRegister.ALCHEMICAL_CAULDRON_BLOCK.get(), 1);
         if (apply_to_all) {
-            item.setHoverName(Component.translatable("recipe.output.duration_all").append(""+multiplier).withStyle(style -> style.withItalic(false)));
+            item.setHoverName(Component.translatable("recipe.output.duration_all", multiplier).withStyle(style -> style.withItalic(false)));
         } else {
-            item.setHoverName(Component.translatable("recipe.output.duration").append(""+multiplier).withStyle(style -> style.withItalic(false)));
+            item.setHoverName(Component.translatable("recipe.output.duration", multiplier).withStyle(style -> style.withItalic(false)));
         }
         return item;
     }

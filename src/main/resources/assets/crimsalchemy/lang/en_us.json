@@ -3,11 +3,11 @@
   "block.crimsalchemy.alchemical_cauldron": "Alchemical Cauldron",
   "creativetab.crimsalchemy_tab" : "Crim's Alchemy",
   "item.crimsalchemy.potion" : "Witch's Brew",
-  "recipe.output.capacity" : "Capacity +",
-  "recipe.output.duration" : "Duration x",
-  "recipe.output.duration_all" : "Duration for all x",
-  "recipe.output.amplifier" : "Amplifier +",
-  "recipe.output.amplifier_all" : "Amplifier for all +",
+  "recipe.output.capacity" : "Capacity +%s",
+  "recipe.output.duration" : "Duration x%s",
+  "recipe.output.duration_all" : "Duration for all x%s",
+  "recipe.output.amplifier" : "Amplifier +%s",
+  "recipe.output.amplifier_all" : "Amplifier for all +%s",
   "recipe.output.color" : "Color Change",
-  "item.output.potion" : "Increases the following effect:"
+  "item.output.potion" : "Adds the following effect:"
 }

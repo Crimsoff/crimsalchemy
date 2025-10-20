@@ -1,0 +1,6 @@
+{
+  "type": "change",
+  "input": "minecraft:gunpowder",
+  "output": "minecraft:splash_potion",
+  "progress_required": 1
+}

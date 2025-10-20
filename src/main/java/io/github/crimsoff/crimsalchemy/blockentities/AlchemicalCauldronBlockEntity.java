@@ -66,6 +66,7 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
 
     public ArrayList<MobEffectInstance> effects = new ArrayList<>();
     public int color = 0xFF385DC6;
+    public Item output = Items.POTION;
 
     private final ItemStackHandler itemStackHandler = new ItemStackHandler(1) {
         @Override
@@ -197,7 +198,7 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
     }
 
     public ItemStack getFilledBottle() {
-        ItemStack filledBottle = new ItemStack(Items.POTION, 1);
+        ItemStack filledBottle = new ItemStack(output, 1);
 
         filledBottle.setHoverName(Component.translatable("item.crimsalchemy.potion").withStyle(style -> style.withItalic(false)));
         PotionUtils.setCustomEffects(filledBottle, effects);
@@ -206,6 +207,7 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
         effects.clear();
         capacity = 1;
         ingredients.clear();
+        output = Items.POTION;
         return filledBottle;
     }
 
@@ -245,6 +247,7 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
         pTag.putInt("progress",progress);
         pTag.putInt("color", color);
         pTag.putInt("capacity", capacity);
+        pTag.putString("output", ForgeRegistries.ITEMS.getKey(output).toString());
         pTag.put("inventory",itemStackHandler.serializeNBT());
         pTag.put("ingredients", ingredients);
         fluidTank.writeToNBT(pTag);
@@ -256,6 +259,10 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
         super.load(pTag);
         progress = pTag.getInt("progress");
         capacity = pTag.getInt("capacity");
+        output = ForgeRegistries.ITEMS.getValue(ResourceLocation.parse(pTag.getString("output")));
+        if (output == Items.AIR) {
+            output = Items.POTION;
+        }
         fluidTank.readFromNBT(pTag);
         itemStackHandler.deserializeNBT(pTag.getCompound("inventory"));
         ingredients = pTag.getList("ingredients", StringTag.TAG_STRING);
@@ -290,7 +297,7 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
         if (CrimsData.RECIPE_LOADER.ALCHEMY_RECIPES.containsKey(itemStackHandler.getStackInSlot(0).getItem())) {
             AlchemicalCauldronRecipe recipe = CrimsData.RECIPE_LOADER.ALCHEMY_RECIPES.get(itemStackHandler.getStackInSlot(0).getItem());
             recipe.applyToCauldron(this);
-            if (!recipe.getType().equals("dye")) {
+            if (!recipe.getType().equals("dye") && !recipe.getType().equals("change")) {
                 color = 0xFF000000 | PotionUtils.getColor(effects);
                 addIngredient(itemStackHandler.getStackInSlot(0).getItem());
             }
@@ -359,7 +366,6 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
                 } else {
                     progress += 1;
                     ((ServerLevel) level).sendParticles(ParticleTypes.SMOKE,pPos.getX() + 0.5, pPos.getY() + 0.5, pPos.getZ() + 0.5, 3, 0.2, 0.15, 0.2, 0);
-                    System.out.println(max_progress);
                     if (progress >= max_progress) {
                         applyRecipe();
                         itemStackHandler.extractItem(0, 1, false);
@@ -369,7 +375,7 @@ public class AlchemicalCauldronBlockEntity extends BlockEntity {
                 }
             }
         }
-        if (itemStackHandler.getStackInSlot(0).getItem() == Items.POTION && !pLevel.isClientSide) {
+        if (itemStackHandler.getStackInSlot(0).getItem() == output && !pLevel.isClientSide) {
             ItemStack item = itemStackHandler.extractItem(0, 1, false);
             ItemEntity itemEntity = new ItemEntity(pLevel, pPos.getX() + 0.5, pPos.getY() + 0.5, pPos.getZ() + 0.5, item);
             itemEntity.setDeltaMovement(pLevel.random.nextFloat() * 0.2 - 0.1, 0.25, pLevel.random.nextFloat() * 0.2 - 0.1);
