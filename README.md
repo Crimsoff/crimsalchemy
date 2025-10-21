@@ -3,11 +3,11 @@
 Crim's Alchemy is a data driven minecraft mod that adds modular potion brewing to the game.
 
 ## Data formats
-### data/crimsalchemy/tags/blocks/heats_cauldron
+### data/crimsalchemy/tags/blocks/heats_cauldron.json
 Blocks in this tag will heat the alchemical cauldron above them.
-### data/crimsalchemy/tags/items/fills_heated_cauldron
+### data/crimsalchemy/tags/items/fills_heated_cauldron.json
 Items in this category will melt and fill a heated alchemical cauldron.
-### data/crimsalchemy/alchemy_recipes
+### data/crimsalchemy/alchemy_recipes/
 #### Potion
 This recipe type adds an effect to the cauldron.  
 If the effect already exists, it adds another level but decreases the duration by a lot.
