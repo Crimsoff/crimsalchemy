@@ -1,6 +1,4 @@
-# crimsalchemy
-
-Crim's Alchemy is a data driven minecraft mod that adds modular potion brewing to the game.
+Crim's Alchemy is a data driven minecraft Java Forge 1.20.1 mod that adds modular potion brewing to the game.
 
 ## Data formats
 ### data/crimsalchemy/tags/blocks/heats_cauldron.json
@@ -40,7 +38,7 @@ Applying to all only applies to previous effects.
 ```
 {
 "type": "capacity",
-"input": "minecraft:nether_wart",
+"input": "namespace:item_id",
 "capacity": 1,
 "progress_required": 1,
 "capacity_requirement": 0
