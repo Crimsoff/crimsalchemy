@@ -1,6 +1,6 @@
 {
   "type": "potion",
-  "input": "minecraft:glass",
+  "input": "minecraft:tinted_glass",
   "effect": "minecraft:invisibility",
   "duration": "4800",
   "progress_required": 20,
